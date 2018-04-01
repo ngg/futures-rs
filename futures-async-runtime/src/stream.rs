@@ -1,5 +1,5 @@
 use std::ops::{Generator, GeneratorState};
-use std::marker::PhantomData;
+use std::marker::{PhantomData, Unpin};
 
 use futures_core::task;
 use futures_core::{Poll, Async, Stream};
@@ -55,4 +55,7 @@ impl<U, T> Stream for GenStream<U, T>
             }
         })
     }
+}
+
+unsafe impl<U, T> Unpin for GenStream<U, T> {
 }

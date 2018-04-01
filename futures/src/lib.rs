@@ -296,9 +296,7 @@ pub mod prelude {
     #[cfg(feature = "nightly")]
     pub use futures_macro_async::{
         async,
-        async_move,
         async_stream,
-        async_stream_move,
         async_block,
         async_stream_block
     };

@@ -1,4 +1,5 @@
 use std::ops::{Generator, GeneratorState};
+use std::marker::Unpin;
 
 use super::{IsResult, Reset, CTX};
 
@@ -51,3 +52,5 @@ impl<T> Future for GenFuture<T>
     }
 }
 
+unsafe impl<T> Unpin for GenFuture<T> {
+}
